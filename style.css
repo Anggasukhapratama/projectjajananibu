@@ -236,3 +236,23 @@ footer{background:var(--dark-brown);color:var(--bg-cream);text-align:center;padd
   section h2{font-size:2rem}
   .cart-popover{right:10px;left:10px;width:auto;max-height:72vh}
 }
+
+
+/* Gelombang di header jangan nangkep klik */
+.wave { pointer-events: none; }
+
+/* Saat popover ditutup (fade-out), jangan blokir klik di bawahnya */
+.cart-popover[aria-open="false"] { pointer-events: none; }
+.cart-popover[hidden] { display: none !important; }
+
+/* Biar tap mobile responsif, tanpa delay/tap highlight */
+.qty-btn,
+.cart-qty-controls .tiny,
+.toggle-desc {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+/* Pastikan konten a ada di atas header jika perlu */
+main { position: relative; z-index: 1; }
