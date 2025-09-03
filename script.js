@@ -1,5 +1,5 @@
 // ====== KONFIGURASI ======
-const WHATSAPP_NUMBER = "6282220991575"; // ganti ke nomor tujuan (62...)
+const WHATSAPP_NUMBER = "6285743067554"; // ganti ke nomor tujuan (62...)
 
 // ====== UTIL ======
 const fmtIDR = (n) =>
@@ -29,7 +29,7 @@ cards.forEach((card) => {
 
   // ubah hint jadi "Min 5" biar konsisten dengan aturan baru
   const hint = card.querySelector(".qty-hint");
-  if (hint) hint.textContent = "Min 5";
+  if (hint) hint.textContent = "Min 10";
 });
 
 // ====== DESKRIPSI TOGGLE ======
@@ -60,7 +60,7 @@ document.addEventListener("click", (e) => {
 
   if (e.target.classList.contains("plus")) {
     const current = CART[id]?.qty || 0;
-    const next = current === 0 ? 5 : current + 1; // mulai dari 5
+    const next = current === 0 ? 10 : current + 1; // mulai dari 5
     setCartItem(id, { id, name, price, qty: next });
     qtySpan.textContent = next;
   }
@@ -68,7 +68,7 @@ document.addEventListener("click", (e) => {
   if (e.target.classList.contains("minus")) {
     const current = CART[id]?.qty || 0;
     let next;
-    if (current <= 5) {
+    if (current <= 10) {
       next = 0; // kalau turun ke 5 atau kurang, anggap batal beli
     } else {
       next = current - 1;
@@ -153,7 +153,7 @@ cartItemsEl.addEventListener("click", (e) => {
     item.qty = item.qty === 0 ? 5 : item.qty + 1;
   }
   if (act === "dec") {
-    if (item.qty <= 5) item.qty = 0;
+    if (item.qty <= 10 ) item.qty = 0;
     else item.qty = item.qty - 1;
   }
   setCartItem(id, item);
@@ -256,7 +256,7 @@ window.showContact = showContact; // agar bisa dipanggil dari HTML
 // Pastikan semua link WA pakai nomormu
 function bindDirectWALinks() {
   const normalize = (n) => n.replace(/\D/g, '').replace(/^0/, '62'); // buang spasi/tanda & ganti 0 depan -> 62
-  const PHONE = normalize(WHATSAPP_NUMBER || "6282220991575");
+  const PHONE = normalize(WHATSAPP_NUMBER || "6285743067554");
 
   document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com/send"], [data-wa="direct"]').forEach(a => {
     // Ambil pesan dari href lama atau dari data attribute
