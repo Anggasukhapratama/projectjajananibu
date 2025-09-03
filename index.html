@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kuliner Kenangan - Cita Rasa Nostalgia</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- ===== HEADER / HERO ===== -->
+  <header class="site-header">
+    <nav class="topbar">
+      <div class="brand">
+        <img src="image/Kuliner (1).png" alt="Kuliner Kenangan" class="brand-logo">
+        <span class="brand-name">Kuliner Kenangan</span>
+      </div>
+
+      <input id="nav-toggle" type="checkbox" hidden>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">☰</label>
+
+      <ul class="nav-links">
+        <li><a href="#produk">Menu</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#" onclick="document.getElementById('cartFab').click()">Keranjang</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <!-- Kiri: teks -->
+      <div class="hero-card">
+        <h1>Kenangan Masa Lalu,<br><span>Tersaji Hari Ini</span></h1>
+        <p>Jajanan pasar autentik—hangat, lembut, dan bikin rindu. Pilih camilan favoritmu, checkout via WhatsApp, kami antar ke rumahmu.</p>
+        <div class="hero-actions">
+          <a href="#produk" class="btn primary">Lihat Menu</a>
+         <a href="https://wa.me/6282220991575?text=Halo%20Kuliner%20Kenangan,%20saya%20mau%20pesan/bertanya."
+   class="btn ghost" target="_blank" rel="noopener">Hubungi Kami</a>
+        </div>
+        <div class="hero-badges">
+          <span>✨ Fresh dibuat harian</span>
+          <span>🌿 Bahan pilihan</span>
+          <span>🚚 COD & Delivery</span>
+        </div>
+      </div>
+
+      <!-- Kanan: foto Mama (PNG transparan) -->
+      <div class="hero-media">
+        <!-- GANTI path ini ke foto mama kamu -->
+        <img src="image\Kuliner__2_-removebg-preview.png" alt="Ibu penjual Kuliner Kenangan" class="mama-img" loading="eager" decoding="async"/>
+      </div>
+    </div>
+
+    <!-- Gelombang pemisah -->
+    <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#FAF7F2" d="M0,64L48,69.3C96,75,192,85,288,96C384,107,480,117,576,101.3C672,85,768,43,864,37.3C960,32,1056,64,1152,80C1248,96,1344,96,1392,96L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section class="produk" id="produk">
+      <h2>Makanan Jadul Favorit</h2>
+
+      <div class="produk-list">
+        <!-- CARD TEMPLATE (ingat: “Min 5”) -->
+        <div class="card" data-id="kue-lapis" data-price="2000">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbac8zkyfeBgoO6E_98eLHG01cRGf6QwB7Q&s" alt="Kue Lapis">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Kue Lapis</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Manis, lembut, dan penuh warna kenangan.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Lapis tradisional kukus dengan lapisan santan, tepung beras, dan gula—tekstur kenyal lembut.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus" aria-label="Kurangi">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus" aria-label="Tambah">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="kacang-bawang" data-price="2000">
+          <img src="https://www.masakapahariini.com/wp-content/uploads/2021/08/Kacang-bawang-renyah.jpg" alt="Kacang Bawang">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Kacang Bawang</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Gurih enak dan maknyus.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Kacang goreng dengan irisan bawang, renyah dan harum—teman ngopi nostalgia.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="kue-putu" data-price="2000">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3j6K3jE5e6Z8vtsEQPoxJjWx6cIbqJGaeKA&s" alt="Kue Putu">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Kue Putu</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Harumnya kelapa dan gula merah khas masa kecil.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Kue kukus berisi gula merah, disajikan dengan kelapa parut—hangat, harum, dan lembut.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="risol" data-price="2000">
+          <img src="https://assets-cloudflare.segari-ops.id/recipes/risoles-sayur-lsbc31isfTG3J.jpg" alt="Risol">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Risol</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Gurih dan renyah, isi sayur atau daging.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Kulit tipis dengan isian ragut sayur/daging, digoreng garing—cocok dicocol saus.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="dadar-gulung" data-price="2000">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbhSfD016eCLrofJWKA-TP8hr0BY1oGXxx_Q&s" alt="Dadar Gulung">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Dadar Gulung</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Warna hijau pandan, isi kelapa manis.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Kulit dadar pandan lembut berisi unti kelapa gula merah—manis legit.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="piscok" data-price="2000">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw0ctQE-UuB-2qaNMjUBfyKMZwI01xlieiYA&s" alt="Piscok">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Piscok</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Pisang coklat, jajanan favorit anak-anak.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Pisang dibalut kulit lumpia dengan lelehan coklat—manisnya bikin nagih.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="arem-arem" data-price="2000">
+          <img src="https://asset.kompas.com/crops/kw5NLYSU7Kf4ytidux6Zi417TXg=/0x0:1000x667/1200x800/data/photo/2020/12/12/5fd458b041251.jpg" alt="Arem Arem">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Arem-Arem</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Nasi isi sayur/daging dibungkus daun pisang.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Nasi pulen berisi tumisan, dibungkus daun pisang lalu dikukus—aromanya khas.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="kue-talam" data-price="2000">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpNZLZP8G1ro4E7alZsp2u1LY8N-2h4Qj57w&s" alt="Kue Talam">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Kue Talam</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Kue lapis dua warna, lembut dan gurih.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Perpaduan lapisan santan gurih dan manis, tekstur lembut—favorit jajanan pasar.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="brownis" data-price="2000">
+          <img src="https://img-global.cpcdn.com/recipes/3924008f36a7200b/680x781cq80/brownies-mini-foto-resep-utama.jpg" alt="Brownis">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Brownis</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Kue coklat lembut, favorit segala usia.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Brownies coklat intens, lembap, dan legit.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-id="cireng-isi" data-price="2000">
+          <img src="https://radarmukomuko.bacakoran.co/upload/6b6e507c749fd35dec7b71cae3ca4f1b.jpeg" alt="Cireng Isi">
+          <div class="card-content">
+            <div class="card-top">
+              <h3>Cireng Isi</h3>
+              <span class="price"></span>
+            </div>
+            <p class="teaser">Cireng dengan isian pedas atau gurih.</p>
+            <button class="toggle-desc" aria-expanded="false">Lihat detail</button>
+            <div class="desc" hidden>
+              Aci goreng kenyal berisi ayam/sosis/abon—pas buat camilan sore.
+            </div>
+            <div class="qty-row">
+              <button class="qty-btn minus">−</button>
+              <span class="qty">0</span>
+              <button class="qty-btn plus">+</button>
+              <small class="qty-hint">Min 5</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="kontak" id="kontak">
+      <h2>Hubungi Kami</h2>
+      <p>Tertarik untuk memesan atau bertanya lebih lanjut?</p>
+      <button onclick="showContact()">Tampilkan Kontak</button>
+     <p id="contactInfo" style="display: none;">
+  <b>WA:</b>
+  <a href="https://wa.me/6282220991575"
+     target="_blank" rel="noopener">0822-2099-1575</a>
+  | <b>IG:</b> @kulinerkenangan
+</p>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Kuliner Kenangan. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <!-- FAB Keranjang melayang (pojok kanan atas) -->
+  <button id="cartFab" class="cart-fab" aria-haspopup="true" aria-expanded="false" title="Keranjang">
+    <span class="icon">🧺</span>
+    <span id="cartCount" class="cart-count">0</span>
+  </button>
+
+  <!-- Popover Keranjang -->
+  <div id="cartPopover" class="cart-popover" hidden role="dialog" aria-label="Keranjang Belanja">
+    <div class="cart-popover-header">
+      <strong>Keranjang</strong>
+      <button id="closePopover" class="x-btn" aria-label="Tutup">×</button>
+    </div>
+
+    <div id="cartItems" class="cart-popover-items"></div>
+
+    <div class="cart-popover-footer">
+      <div class="totals">
+        <span>Total</span>
+        <strong id="cartTotal">Rp0</strong>
+      </div>
+      <div class="checkout-actions">
+        <button id="clearCart" class="outline">Bersihkan</button>
+        <a id="waCheckout" class="primary" href="#" target="_blank" rel="noopener">Checkout WA</a>
+      </div>
+      <small class="checkout-tip">Checkout membuka WhatsApp dengan struk otomatis.</small>
+    </div>
+  </div>
+
+  <!-- JS (pakai file script.js versi MIN 5) -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+/* ===== Tema "Sukses Emas Hijau" ===== */
+:root{
+  --brand:#0B3D2E;        /* hijau evergreen */
+  --brand-ink:#08261E;
+  --gold:#D4AF37;         /* emas */
+  --gold-soft:#F6E7B2;    /* emas lembut */
+  --cream:#FAF7F2;        /* latar premium */
+  --ink:#2A2A2A;
+
+  /* mapping ke variabel lama (komponen reuse) */
+  --primary-yellow: var(--gold);
+  --dark-brown:     var(--brand);
+  --bg-cream:       var(--cream);
+  --card-bg:        #FFFFFF;
+  --text-color:     var(--ink);
+
+  --font-heading:'Playfair Display',serif;
+  --font-body:'Lato',sans-serif;
+  --shadow:0 4px 15px rgba(0,0,0,.08);
+  --shadow-lg:0 18px 40px rgba(0,0,0,.20);
+  --ring:0 0 0 3px color-mix(in srgb, var(--gold) 45%, transparent);
+
+  --glass: rgba(255,255,255,.62);
+  --glass-stroke: rgba(255,255,255,.38);
+  --hero-overlay:
+    linear-gradient(180deg,
+      color-mix(in srgb, #000 32%, var(--brand) 18%),
+      color-mix(in srgb, #000 45%, var(--brand) 22%)
+    );
+}
+
+/* ===== Reset & dasar ===== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--text-color);background:var(--bg-cream);line-height:1.6}
+
+/* ====== HEADER BARU ====== */
+.site-header{
+  position: relative;
+  background:
+    var(--hero-overlay),
+    url('https://images.unsplash.com/photo-1738225735048-d3c9f5ad0869?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: #fff;
+  padding-bottom: 56px; /* ruang gelombang */
+  overflow: visible; /* agar foto bisa 'mengintip' */
+}
+
+/* Topbar / Navbar */
+.topbar{
+  position: sticky; top: 0; z-index: 30;
+  max-width: 1200px; margin: 0 auto; padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  background: rgba(255,255,255,.08);
+  border-radius: 18px; border: 1px solid rgba(255,255,255,.18);
+  margin-top: 16px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.3px}
+.brand-logo{width:40px;height:40px;border-radius:10px;object-fit:cover;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.brand-name{font-family: var(--font-heading); font-size:1.1rem}
+
+.nav-links{display:flex;align-items:center;gap:18px;list-style:none;margin:0;padding:0}
+.nav-links a{
+  color:#fff;text-decoration:none;font-weight:800;opacity:.95;padding:.5rem .8rem;border-radius:10px;
+}
+.nav-links a:hover{background: color-mix(in srgb, var(--gold) 20%, transparent)}
+.hamburger{display:none;color:#fff;font-size:22px;cursor:pointer;padding:.4rem .6rem;border-radius:10px}
+.hamburger:hover{background:rgba(255,255,255,.14)}
+
+/* Hero (2 kolom) */
+.hero{
+  max-width: 1200px; margin: 40px auto 0; padding: 0 16px;
+  display: grid; align-items: center; gap: 24px;
+  grid-template-columns: 1.1fr .9fr; min-height: 46vh;
+}
+.hero-card{
+  background: var(--glass); color:#2b2b2b;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border:1px solid var(--glass-stroke); border-radius: 22px;
+  padding: 26px 26px 22px; max-width: 700px; box-shadow: 0 16px 40px rgba(0,0,0,.22);
+}
+.hero-card h1{
+  font-family: var(--font-heading); color:#1f140c;
+  font-size: clamp(30px, 5vw, 52px); line-height: 1.05; margin: 0 0 10px;
+}
+.hero-card h1 span{ color: var(--primary-yellow); }
+.hero-card p{ color:#3b2a1c; margin: 0 0 16px; font-size: clamp(14px, 2.2vw, 18px); }
+
+.hero-actions{display:flex;gap:10px;margin-bottom:12px}
+.btn{display:inline-block;border-radius:12px;font-weight:900;text-decoration:none;padding:.78rem 1.2rem}
+.btn.primary{ background: var(--primary-yellow); color:#fff; }
+.btn.primary:hover{ box-shadow: var(--ring); }
+.btn.ghost{ background: rgba(11,61,46,.1); color:#2b2b2b; border:1px dashed rgba(11,61,46,.25); }
+.btn.ghost:hover{ background: rgba(11,61,46,.16); }
+
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px}
+.hero-badges span{
+  background:#fff; color:var(--dark-brown); border:1px solid #f0e4cd;
+  border-radius:999px; padding:6px 10px; font-size:.85rem; font-weight:800;
+}
+
+/* Media kanan (foto mama) */
+.hero-media{ position: relative; display: grid; place-items: center; padding-right: 12px; }
+.hero-media::after{
+  content:""; position:absolute; width: clamp(180px, 40vw, 420px); height: clamp(180px, 40vw, 420px);
+  background: radial-gradient(closest-side, rgba(255,255,255,.55), transparent 70%);
+  filter: blur(10px); border-radius: 50%; z-index: 0; transform: translateY(8px);
+}
+.mama-img{
+  position: relative; z-index: 1;
+  width: clamp(220px, 34vw, 460px); height: auto; object-fit: contain;
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,.28));
+  animation: sway 4.5s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+@keyframes sway{
+  0%   { transform: translateY(0) rotate(-1.2deg); }
+  50%  { transform: translateY(-6px) rotate(1.2deg); }
+  100% { transform: translateY(0) rotate(-1.2deg); }
+}
+.mama-img:hover{ animation-duration: 6s }
+@media (prefers-reduced-motion: reduce){ .mama-img{ animation: none } }
+
+/* Wave separator */
+.wave{position:absolute; left:0; right:0; bottom:0; width:100%; height:56px; display:block}
+
+/* Responsif menu */
+@media (max-width: 840px){
+  .nav-links{position: absolute; right: 16px; top: 68px;
+    background: rgba(255,255,255,.12); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 10px;
+    display: none; flex-direction: column; gap: 0; min-width: 160px;
+  }
+  .nav-links li a{display:block;width:100%;border-radius:10px}
+  .hamburger{display:block}
+  #nav-toggle:checked ~ .nav-links{display:flex}
+}
+
+/* ===== Main / Section ===== */
+main{width:100%}
+.produk{padding:3rem 1rem;text-align:center}
+section h2{font-family:var(--font-heading);font-size:2.5rem;color:var(--dark-brown);margin-bottom:2rem}
+.produk-list{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;max-width:1200px;margin:0 auto}
+
+/* ===== Card Produk ===== */
+.card{
+  background:linear-gradient(#fff,#fff9f0);
+  width:280px;border-radius:16px;box-shadow:var(--shadow);border:1px solid #f2e8d8;
+  overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;display:flex;flex-direction:column
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 14px 30px rgba(11,61,46,.15)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-content{padding:1rem 1.25rem 1.25rem;text-align:left;display:grid;gap:.75rem}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.card h3{font-family:var(--font-heading);font-size:1.35rem;margin:0;color:var(--dark-brown)}
+.price{font-weight:700;background:var(--gold-soft);color:var(--brand-ink);padding:.2rem .5rem;border-radius:10px}
+.teaser{margin:0;font-size:.96rem}
+
+.toggle-desc{all:unset;cursor:pointer;color:var(--dark-brown);font-weight:700;font-size:.95rem;border-bottom:2px dashed var(--primary-yellow);padding-bottom:2px;width:fit-content;transition:opacity .2s ease}
+.toggle-desc:hover{opacity:.85}
+.toggle-desc::after{content:'▾';margin-left:.35rem;display:inline-block;transition:transform .2s ease}
+.toggle-desc[aria-expanded="true"]::after{transform:rotate(180deg)}
+.desc{font-size:.92rem;background:#fff7e6;padding:.6rem .75rem;border-radius:10px}
+
+.qty-row{display:flex;align-items:center;gap:.6rem;margin-top:.25rem}
+.qty-btn{width:36px;height:36px;border-radius:10px;border:none;cursor:pointer;background:var(--primary-yellow);color:#fff;font-weight:900;font-size:1.1rem;transition:transform .15s ease,box-shadow .2s ease,background .25s ease,opacity .2s ease}
+.qty-btn:hover{box-shadow:var(--ring)}
+.qty-btn:active{transform:translateY(1px) scale(.98)}
+.qty-btn:disabled{opacity:.45;cursor:not-allowed}
+.qty{min-width:20px;text-align:center;font-weight:700}
+.qty-hint{color:#8c6a3f}
+
+/* ===== Kontak ===== */
+.kontak{background:#fff;padding:3rem 1rem;text-align:center}
+.kontak p{margin-top:0;margin-bottom:1.5rem;font-size:1.1rem}
+.kontak button{background:var(--primary-yellow);color:#fff;border:none;padding:.8rem 1.8rem;font-size:1rem;font-weight:700;border-radius:50px;cursor:pointer;transition:background .3s ease,box-shadow .2s ease}
+.kontak button:hover{background:var(--dark-brown);box-shadow:var(--ring)}
+
+/* ===== Footer ===== */
+footer{background:var(--dark-brown);color:var(--bg-cream);text-align:center;padding:1.5rem 1rem;font-size:.9rem}
+
+/* ===== FAB Keranjang ===== */
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+.cart-fab{
+  position:fixed;top:20px;right:20px;z-index:100;background:var(--dark-brown);color:#fff;border:none;
+  min-width:58px;height:58px;padding:0 14px;border-radius:18px;box-shadow:0 12px 28px rgba(0,0,0,.18);
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:24px;animation:floaty 3.2s ease-in-out infinite
+}
+.cart-fab:hover{box-shadow:0 16px 36px rgba(0,0,0,.24)}
+.cart-fab:focus-visible{outline:3px solid color-mix(in srgb, var(--gold) 60%, transparent)}
+.cart-count{background:crimson;color:#fff;font-weight:800;font-size:.8rem;padding:2px 8px;border-radius:999px;line-height:1;transform:translateY(-2px)}
+
+/* ===== Popover Keranjang ===== */
+.cart-popover{
+  position:fixed;top:88px;right:20px;width:min(92vw,380px);max-height:70vh;overflow:hidden;
+  background:rgba(255,255,255,.66);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(212,175,55,.35);border-radius:16px;box-shadow:var(--shadow-lg);z-index:110;
+  display:grid;grid-template-rows:auto minmax(120px,1fr) auto;opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease
+}
+.cart-popover[aria-open="true"]{opacity:1;transform:translateY(0)}
+.cart-popover::before{
+  content:"";position:absolute;top:-10px;right:32px;width:18px;height:18px;background:inherit;
+  transform:rotate(45deg);border-left:1px solid rgba(212,175,55,.35);border-top:1px solid rgba(212,175,55,.35);filter:blur(.2px)
+}
+.cart-popover-header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;background:linear-gradient(180deg,rgba(253,248,240,.85),rgba(255,255,255,.6));border-bottom:1px solid rgba(0,0,0,.06)}
+.x-btn{all:unset;cursor:pointer;font-size:24px;padding:.2rem .4rem;border-radius:10px}
+.x-btn:hover{background:rgba(0,0,0,.06)}
+.x-btn:focus-visible{outline:3px solid color-mix(in srgb, var(--gold) 60%, transparent)}
+
+.cart-popover-items{padding:.5rem 1rem;overflow-y:auto}
+.cart-popover-items::-webkit-scrollbar{width:10px}
+.cart-popover-items::-webkit-scrollbar-thumb{background:#e9d7b6;border-radius:999px}
+.cart-item{display:grid;grid-template-columns:1fr auto;gap:.4rem .6rem;padding:.75rem 0;border-bottom:1px dashed rgba(0,0,0,.08)}
+.cart-item h4{margin:0;font-size:1rem}
+.cart-line{color:#555}
+.cart-qty-controls{display:flex;align-items:center;gap:.5rem;justify-self:end}
+.cart-qty-controls .tiny{width:28px;height:28px;border-radius:8px;font-weight:900;border:none;background:#efefef;cursor:pointer}
+.cart-qty-controls .tiny:hover{box-shadow:var(--ring)}
+
+.cart-popover-footer{padding:.75rem 1rem 1rem;border-top:1px solid rgba(0,0,0,.06);display:grid;gap:.75rem}
+.totals{display:flex;align-items:center;justify-content:space-between;font-size:1.05rem}
+.checkout-actions{display:flex;gap:.6rem}
+.checkout-actions .outline{background:transparent;border:2px solid var(--dark-brown);color:var(--dark-brown);border-radius:12px;padding:.65rem 1rem;font-weight:800;cursor:pointer}
+.checkout-actions .outline:hover{box-shadow:var(--ring)}
+.checkout-actions .primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;background:var(--primary-yellow);color:#fff;border-radius:12px;padding:.68rem 1rem;font-weight:800}
+.checkout-actions .primary:hover{box-shadow:var(--ring)}
+.checkout-tip{color:#777;font-size:.85rem}
+
+/* ===== Responsif ===== */
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .hero-media{ order: 2; margin-top: 8px; }
+  .mama-img{ width: clamp(200px, 60vw, 360px); }
+}
+@media (max-width:480px){
+  section h2{font-size:2rem}
+  .cart-popover{right:10px;left:10px;width:auto;max-height:72vh}
+}
