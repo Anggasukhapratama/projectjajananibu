@@ -1,5 +1,5 @@
 // ====== KONFIGURASI ======
-const WHATSAPP_NUMBER = "6281234567890"; // ganti ke nomor tujuan (62...)
+const WHATSAPP_NUMBER = "6282220991575"; // ganti ke nomor tujuan (62...)
 
 // ====== UTIL ======
 const fmtIDR = (n) =>
@@ -253,5 +253,23 @@ function showContact() {
 window.showContact = showContact; // agar bisa dipanggil dari HTML
 
 // ====== STARTUP ======
+// Pastikan semua link WA pakai nomormu
+function bindDirectWALinks() {
+  const normalize = (n) => n.replace(/\D/g, '').replace(/^0/, '62'); // buang spasi/tanda & ganti 0 depan -> 62
+  const PHONE = normalize(WHATSAPP_NUMBER || "6282220991575");
+
+  document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com/send"], [data-wa="direct"]').forEach(a => {
+    // Ambil pesan dari href lama atau dari data attribute
+    let url = new URL(a.getAttribute('href') || window.location.href, window.location.origin);
+    let msg = a.dataset.waMsg || url.searchParams.get('text') || "";
+
+    // Tulis ulang href ke format wa.me yang bersih
+    a.href = `https://wa.me/${PHONE}${msg ? `?text=${encodeURIComponent(msg)}` : ""}`;
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+}
+
 renderCart();
 updateBadge();
+bindDirectWALinks();
